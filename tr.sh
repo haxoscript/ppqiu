@@ -209,7 +209,6 @@ wget -O cektr "https://github.com/haxoscript/ppqiu/raw/main/cektr.sh"
 wget -O renewtr "https://github.com/haxoscript/ppqiu/raw/main/renewtr.sh"
 wget -O xp-tr "https://github.com/haxoscript/ppqiu/raw/main/xp-tr.sh"
 wget -O certv2ray "https://github.com/haxoscript/ppqiu/raw/main/cert.sh"
-chmod +x addvless
 chmod +x addtr
 chmod +x deltr
 chmod +x cektr
