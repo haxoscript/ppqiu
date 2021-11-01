@@ -30,8 +30,6 @@ SUB_DOMAIN=${sub}
 echo "Hostname : $SUB_DOMAIN"
 echo "IP=$SUB_DOMAIN" >> /var/lib/premium-script/ipvps.conf
 
-#install SSH
-wget https://github.com/haxoscript/ppqiu/raw/main/ssh-vpn.sh && bash ssh-vpn.sh
 #install V2RAY
 wget https://github.com/haxoscript/ppqiu/raw/main/ins-vt.sh && bash ins-vt.sh
 #install L2TP
