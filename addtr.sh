@@ -36,7 +36,7 @@ systemctl restart trojan
 trojanlink="trojan://${user}@${domain}:${tr}"
 clear
 echo -e ""
-echo -e "=============-Trojan-============" | lolcat
+echo -e "=============-Trojan-============"
 echo -e "Remarks        : ${user}"
 echo -e "CITY           : $CITY"
 echo -e "ISP            : $ISP"
@@ -44,5 +44,5 @@ echo -e "Host/IP        : ${domain}"
 echo -e "port           : ${tr}"
 echo -e "Key            : ${user}"
 echo -e "link           : ${trojanlink}"
-echo -e "=================================" | lolcat
+echo -e "================================="
 echo -e "Expired On     : $exp"
