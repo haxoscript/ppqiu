@@ -9,15 +9,6 @@ NET=$(ip -o $ANU -4 route show to default | awk '{print $5}');
 source /etc/os-release
 ver=$VERSION_ID
 
-#detail nama perusahaan
-country=ID
-state=Java
-locality=Blora
-organization=Sshinjector.net
-organizationalunit=Sshinjector.net
-commonname=Sshinjector.net
-email=cs@sshinjector.net
-
 # simple password minimal
 wget -O /etc/pam.d/common-password "https://github.com/haxoscript/ppqiu/raw/main/password"
 chmod +x /etc/pam.d/common-password
@@ -144,35 +135,6 @@ systemctl enable vnstat
 rm -f /root/vnstat-2.6.tar.gz 
 rm -rf /root/vnstat-2.6
 
-# install stunnel
-apt install stunnel4 -y
-cat > /etc/stunnel/stunnel.conf <<-END
-cert = /etc/stunnel/stunnel.pem
-client = no
-socket = a:SO_REUSEADDR=1
-socket = l:TCP_NODELAY=1
-socket = r:TCP_NODELAY=1
-
-[dropbear]
-accept = 402
-connect = 127.0.0.1:442
-
-[openssh]
-accept = 401
-connect = 127.0.0.1:22
-
-END
-
-# make a certificate
-openssl genrsa -out key.pem 2048
-openssl req -new -x509 -key key.pem -out cert.pem -days 1095 \
--subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"
-cat key.pem cert.pem >> /etc/stunnel/stunnel.pem
-
-# konfigurasi stunnel
-sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
-/etc/init.d/stunnel4 restart
-
 # install fail2ban
 apt -y install fail2ban
 
@@ -255,12 +217,10 @@ apt -y autoremove
 cd
 chown -R www-data:www-data /home/vps/public_html
 /etc/init.d/nginx restart
-/etc/init.d/openvpn restart
 /etc/init.d/cron restart
 /etc/init.d/ssh restart
 /etc/init.d/dropbear restart
 /etc/init.d/fail2ban restart
-/etc/init.d/stunnel4 restart
 /etc/init.d/vnstat restart
 /etc/init.d/squid restart
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500
