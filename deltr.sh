@@ -9,7 +9,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/trojan/akun.conf")
 	echo ""
 	echo " Select the existing client you want to remove"
 	echo " Press CTRL+C to return"
-	echo " ===============================" | lolcat
+	echo " ==============================="
 	echo "     No  Expired   User"
 	grep -E "^### " "/etc/trojan/akun.conf" | cut -d ' ' -f 2-3 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
