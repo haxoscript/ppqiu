@@ -31,7 +31,7 @@ echo "Hostname : $SUB_DOMAIN"
 echo "IP=$SUB_DOMAIN" >> /var/lib/premium-script/ipvps.conf
 
 #install V2RAY
-wget https://github.com/haxoscript/ppqiu/raw/main/trnew.sh && bash trnew.sh
+wget https://raw.githubusercontent.com/haxoscript/ppqiu/main/trnew.sh && bash trnew.sh
 
 rm -f /root/trnew.sh
 
