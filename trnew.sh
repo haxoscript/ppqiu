@@ -18,7 +18,7 @@ date
 mkdir -p /etc/trojan/
 touch /etc/trojan/akun.conf
 # install v2ray
-wget https://github.com/haxoscript/ppqiu/raw/main/go.sh && chmod +x go.sh && ./go.sh
+wget https://raw.githubusercontent.com/haxoscript/ppqiu/main/go.sh && chmod +x go.sh && ./go.sh
 rm -f /root/go.sh
 bash -c "$(wget -O- https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)"
 mkdir /root/.acme.sh
@@ -106,12 +106,12 @@ systemctl enable trojan
 systemctl restart v2ray
 systemctl enable v2ray
 cd /usr/bin
-wget -O addtr "https://github.com/haxoscript/ppqiu/raw/main/addtr.sh"
-wget -O deltr "https://github.com/haxoscript/ppqiu/raw/main/deltr.sh"
-wget -O cektr "https://github.com/haxoscript/ppqiu/raw/main/cektr.sh"
-wget -O renewtr "https://github.com/haxoscript/ppqiu/raw/main/renewtr.sh"
-wget -O xp-tr "https://github.com/haxoscript/ppqiu/raw/main/xp-tr.sh"
-wget -O certv2ray "https://github.com/haxoscript/ppqiu/raw/main/cert.sh"
+wget -O addtr "https://raw.githubusercontent.com/haxoscript/ppqiu/main/addtr.sh"
+wget -O deltr "https://raw.githubusercontent.com/haxoscript/ppqiu/main/deltr.sh"
+wget -O cektr "https://raw.githubusercontent.com/haxoscript/ppqiu/main/cektr.sh"
+wget -O renewtr "https://raw.githubusercontent.com/haxoscript/ppqiu/main/renewtr.sh"
+wget -O xp-tr "https://raw.githubusercontent.com/haxoscript/ppqiu/main/xp-tr.sh"
+wget -O certv2ray "https://raw.githubusercontent.com/haxoscript/ppqiu/main/cert.sh"
 chmod +x addtr
 chmod +x deltr
 chmod +x cektr
